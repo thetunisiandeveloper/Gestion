@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".List.ProductList">
+
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#D3D3D3	"
+
+        />
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dcode"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="code à barre :"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dnomp"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="nom du produit:"
+            android:layout_marginTop="25dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dfournisseur"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="Fournisseur:"
+            android:layout_marginTop="45dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dcategorie"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="categorie:"
+            android:layout_marginTop="65dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dmarque"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="Marque:"
+            android:layout_marginTop="85dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dqantite"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="Qantité:"
+            android:layout_marginTop="105dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dprix"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="Prix:"
+            android:layout_marginTop="125dp"
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pArticles"
+        android:icon="@drawable/ic_articles"
+        android:title="Articles"
+        />
+    <item
+        android:id="@+id/addarticles"
+        android:icon="@drawable/ic_add"
+        android:title="Ajouter Article"
+        />
+    <item
+        android:id="@+id/pFournisseur"
+        android:icon="@drawable/ic_fournisseur"
+        android:title="Fournisseurs"
+        />
+    <item
+        android:id="@+id/pClient"
+        android:icon="@drawable/ic_client"
+        android:title="Clients"
+        />
+    <item
+        android:id="@+id/pCommandes"
+        android:icon="@drawable/ic_commandes"
+        android:title="Commandes"
+        />
+
+</menu>
