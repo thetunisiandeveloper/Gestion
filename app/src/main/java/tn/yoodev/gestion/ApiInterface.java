@@ -16,10 +16,15 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-    @POST("add.php")
+    @POST("save.php")
     Call<ResponseBody> insertdata(
-            @Field("Code")String Code,
-            @Field("marque")String Marque
+                    @Field("Code")String Code,
+                    @Field("Marque")String Marque,
+                    @Field("Prix")String Prix,
+                    @Field("Nomp")String Nomp,
+                    @Field("categorie")String categorie,
+                    @Field("Fournisseur")String Fournisseur,
+                    @Field("Seuil")String Seuil
 
     );
 

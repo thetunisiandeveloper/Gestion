@@ -14,7 +14,7 @@ import retrofit2.Response;
 import tn.yoodev.gestion.Connection.RetrofitInstance;
 
 public class add extends AppCompatActivity {
-    private EditText etcode, etmarque;
+    private EditText etcode, etmarque, etfournisseur,etnomp,etprix,etcategorie,etseuil;
     private Button btn;
 
     @Override
@@ -29,6 +29,12 @@ public class add extends AppCompatActivity {
 
         etcode = findViewById(R.id.fcode);
         etmarque = findViewById(R.id.fmarque);
+        etfournisseur= findViewById(R.id.ffournisseur);
+        etnomp = findViewById(R.id.fnomp);
+        etprix= findViewById(R.id.fprix);
+        etcategorie= findViewById(R.id.fcategorie);
+        etseuil = findViewById(R.id.fseuil);
+
         btn = findViewById(R.id.btnadd);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,18 +49,48 @@ public class add extends AppCompatActivity {
     private void insertData() {
         String code = etcode.getText().toString().trim();
         String marque = etmarque.getText().toString().trim();
+        String fournisseur = etfournisseur.getText().toString().trim();
+        String categorie = etcategorie.getText().toString().trim();
+        String nomp = etnomp.getText().toString().trim();
+        String prix = etprix.getText().toString().trim();
+        String seuil = etseuil.getText().toString().trim();
 
         if (code.isEmpty()) {
-            etcode.setError("Enter name");
+            etcode.setError("donner code a barre");
             etcode.requestFocus();
             return;
         }
         if (marque.isEmpty()) {
-            etmarque.setError("enter email");
+            etmarque.setError("donner la marque");
             etmarque.requestFocus();
             return;
         }
-        Call<ResponseBody> call = RetrofitInstance.getInstance().getMyApi().insertdata(code, marque);
+        if (fournisseur.isEmpty()) {
+            etfournisseur.setError("donner fournisseur");
+            etfournisseur.requestFocus();
+            return;
+        }
+        if (categorie.isEmpty()) {
+            etcategorie.setError("donner categorie");
+            etcategorie.requestFocus();
+            return;
+        }
+        if (prix.isEmpty()) {
+            etprix.setError("donner prix");
+            etprix.requestFocus();
+            return;
+        }
+        if (nomp.isEmpty()) {
+            etnomp.setError("donner Nom du produit");
+            etnomp.requestFocus();
+            return;
+        }
+        if (seuil.isEmpty()) {
+            etseuil.setError("donner seuil");
+            etseuil.requestFocus();
+            return;
+        }
+        Call<ResponseBody> call = RetrofitInstance.getInstance().getMyApi().insertdata(code, marque,prix,nomp,categorie,fournisseur,seuil);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
