@@ -12,10 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Commandes_nl"></activity>
+        <activity android:name=".Commandes" />
+        <activity android:name=".Clients" />
+        <activity android:name=".Fournisseurs" />
         <activity
             android:name=".menu.adminMenu"
             android:label="@string/title_activity_admin_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".add" />
         <activity android:name=".List.ProductList" />
         <activity android:name=".L_commercial" />

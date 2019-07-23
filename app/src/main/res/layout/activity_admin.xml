@@ -6,16 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
+    app:menu="@menu/admin_menu"
     tools:context=".admin">
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:menu="@menu/admin_menu"
-        android:layout_gravity="start"
-
-        ></com.google.android.material.navigation.NavigationView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
@@ -29,12 +23,11 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="@string/Ajouter"
+    android:text="Articles"
     android:layout_marginTop="10dp"
-    android:layout_marginLeft="120dp"
+    android:layout_marginLeft="140dp"
     android:textSize="20sp"
     android:textColor="#000"
-    android:id="@+id/addarticle"
 
 
     />

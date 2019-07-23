@@ -2,8 +2,8 @@ package tn.yoodev.gestion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,7 +23,7 @@ public class admin extends AppCompatActivity {
     private ProductAdapter adapter;
     private List<ProductList> Productsdata;
     private ApiInterface apiInterface;
-    TextView addArticle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,37 +31,9 @@ public class admin extends AppCompatActivity {
 
 
 
-              addArticle = findViewById(R.id.addarticle);
-        addArticle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent ajoutArticles = new Intent(getApplicationContext(),add.class);
-                startActivity(ajoutArticles);
-                finish();
 
-            }
-        });
 
-  /*      public boolean onCreateOptionsMenu(Menu menu) {
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu, menu);
-            return true;
-        }
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            switch(item.getItemId()) {
-                case R.id.addarticles:
-                    Intent intent = new Intent(this, ActivityForItemOne.class);
-                    this.startActivity(intent);
-                    break;
 
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
-
-            return true;
-        }
-*/
         recyclerView=(RecyclerView)findViewById(R.id.rec);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -91,5 +63,50 @@ public class admin extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.admin_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(  MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.addarticles) {
+
+            Intent intent = new Intent(this,add.class);
+            this.startActivity(intent);
+
+            return true;
+        }
+        if (id == R.id.pArticles) {
+
+            Intent intent = new Intent(this,admin.class);
+            this.startActivity(intent);
+            return true;
+        }
+        if (id == R.id.pFournisseur) {
+
+            Intent intent = new Intent(this,Fournisseurs.class);
+            this.startActivity(intent);
+            return true;
+        }
+        if (id == R.id.pClient) {
+
+            Intent intent = new Intent(this,Clients.class);
+            this.startActivity(intent);
+            return true;
+        }
+        if (id == R.id.pCommandes) {
+
+            Intent intent = new Intent(this,Commandes.class);
+            this.startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
