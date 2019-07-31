@@ -6,9 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,50 +17,61 @@ import retrofit2.Response;
 import tn.yoodev.gestion.Connection.RetrofitInstance;
 import tn.yoodev.gestion.G_Adapter.ProductAdapter;
 import tn.yoodev.gestion.List.ProductList;
+import tn.yoodev.gestion.Models.Product;
 
 public class admin extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
-    private List<ProductList> Productsdata;
-    private ApiInterface apiInterface;
+     List<Product> Productsdata = new ArrayList<Product>();
+    static ApiInterface apiInterface ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-
-
-
-
-
         recyclerView=(RecyclerView)findViewById(R.id.rec);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // adapter=new ProductAdapter(Productsdata,admin.this);
-       // recyclerView.setAdapter(adapter);
-        apiInterface= RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
-        recyclerView.setHasFixedSize(true);
-        Call<List<ProductList>> call = apiInterface.getProduct();
-        //Call<List<ProductList>> call=apiInterface.getProduct();
-        call.enqueue(new Callback<List<ProductList>>() {
+        //recyclerView.setHasFixedSize(true);
+
+
+        apiInterface = RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
+
+
+        Call<ProductList> call = admin.apiInterface.getProduct();
+        call.enqueue(new Callback<ProductList>() {
             @Override
-            public void onResponse(Call<List<ProductList>> call, Response<List<ProductList>> response) {
-                Productsdata=response.body();
-                adapter=new ProductAdapter(Productsdata,admin.this);
+            public void onResponse(Call<ProductList> call, Response<ProductList> response) {
+
+                Productsdata=response.body().getProduct();
+
+               /*
+                recyclerView.setHasFixedSize(true);
+
+                recyclerView.setItemViewCacheSize(24);
+                recyclerView.setDrawingCacheEnabled(true);
+                recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+                recyclerView.setLayoutManager(new GridLayoutManager(admin.this, 2));
+
+*/
+
+                adapter=new ProductAdapter(Productsdata);
                 recyclerView.setAdapter(adapter);
-               // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_SHORT).show();
+
+
+
+              //  Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
-            public void onFailure(Call<List<ProductList>> call, Throwable t) {
+            public void onFailure(Call<ProductList> call, Throwable t) {
 
             }
         });
 
-
-
+      //  recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
     @Override

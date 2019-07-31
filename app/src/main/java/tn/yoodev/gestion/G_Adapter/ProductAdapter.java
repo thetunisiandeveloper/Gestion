@@ -1,7 +1,6 @@
 package tn.yoodev.gestion.G_Adapter;
 
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import tn.yoodev.gestion.List.ProductList;
+import tn.yoodev.gestion.Models.Product;
 import tn.yoodev.gestion.R;
+
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
 
-    private List<ProductList>Products;
-    private Context context;
+    private List<Product>Products;
 
-    public ProductAdapter (){}
-    public ProductAdapter(List<ProductList> products, Context context) {
+
+    public ProductAdapter(List<Product> products) {
         this.Products = products;
-        this.context = context;
+
     }
 
     @NonNull
@@ -35,7 +34,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ProductList ac=Products.get(position);
+        Product ac=Products.get(position);
 
 
         holder.tcode.setText(ac.getCode());
@@ -45,8 +44,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tnomp.setText(ac.getNomp());
         holder.tfournisseur.setText(ac.getFournisseur());
         holder.tmarque.setText(ac.getMarque());
+  }
 
-    }
+
 
     @Override
     public int getItemCount() {
@@ -55,7 +55,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tcode,tfournisseur,tmarque,tquantite,tnomp,tprix,tcategorie;
+         TextView tcode,tfournisseur,tmarque,tquantite,tnomp,tprix,tcategorie;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -67,8 +67,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             tnomp=(TextView) itemView.findViewById(R.id.dnomp);
             tprix=(TextView) itemView.findViewById(R.id.dprix);
             tcategorie=(TextView) itemView.findViewById(R.id.dcategorie);
-
-
-
         }
-    }}
+    }
+}

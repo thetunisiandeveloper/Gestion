@@ -10,7 +10,7 @@ public class RetrofitInstance {
         private static RetrofitInstance myClient;
 
         private static Retrofit retrofit=null;
-        private static final String BASE_URL = "http://10.0.2.2/db/admin/";
+        private static final String BASE_URL = "http://10.0.0.2/db/admin/";
 
         public static Retrofit getRetrofitInstance() {
             if (retrofit == null) {

@@ -1,7 +1,5 @@
 package tn.yoodev.gestion;
 
-import java.util.List;
-
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -12,7 +10,7 @@ import tn.yoodev.gestion.List.ProductList;
 
 public interface ApiInterface {
     @GET("articles.php")
-    Call<List<ProductList>> getProduct();
+    Call<ProductList> getProduct();
 
 
     @FormUrlEncoded

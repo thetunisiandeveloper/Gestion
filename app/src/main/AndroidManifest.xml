@@ -16,12 +16,9 @@
         <activity android:name=".Commandes" />
         <activity android:name=".Clients" />
         <activity android:name=".Fournisseurs" />
-        <activity
-            android:name=".menu.adminMenu"
-            android:label="@string/title_activity_admin_menu"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".add" />
-        <activity android:name=".List.ProductList" />
+
         <activity android:name=".L_commercial" />
         <activity android:name=".Commercial" />
         <activity android:name=".admin" />
